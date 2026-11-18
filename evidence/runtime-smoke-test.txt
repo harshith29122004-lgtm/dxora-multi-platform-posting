@@ -1,0 +1,9 @@
+$ uvicorn app.main:app --host 127.0.0.1 --port 4000
+GET /health -> HTTP 200 {"status": "ok"}
+GET /openapi.json -> HTTP 200; paths: /health, /posting
+POST /posting -> HTTP 200; overall success=False; platform results=5
+  LinkedIn: failed - Missing LINKEDIN_ACCESS_TOKEN or LINKEDIN_AUTHOR_URN.
+  Mastodon: failed - Missing MASTODON_ACCESS_TOKEN.
+  Bluesky: failed - Missing BLUESKY_HANDLE or BLUESKY_APP_PASSWORD.
+  WordPress: failed - Missing WordPress site URL, username, or application password.
+  Telegram: failed - Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID.
